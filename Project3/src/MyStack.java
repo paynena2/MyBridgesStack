@@ -8,6 +8,10 @@ public class MyStack<E> implements StackInterface<E> {
 	private MyNode firstNode;
 	private int alreadyDisplayed = 0;
 	
+	/**
+	 * Creates a new stack and calls various test cases on it
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		MyStack stack = new MyStack();
 		stack.push(1);
@@ -29,16 +33,25 @@ public class MyStack<E> implements StackInterface<E> {
 		stack.display();
 	}
 	
+	/**
+	 * Constructor that sets the firstNode var to null
+	 */
 	public MyStack() {
 		firstNode = null;
 	}
 	
+	/**
+	 * Pushes an element of type E on to the top of the stack
+	 */
 	@Override
 	public void push(E newEntry) {
 		MyNode newNode = new MyNode(newEntry, firstNode);
 		firstNode = newNode;
 	}
 
+	/**
+	 * Pops the element off the top of the stack
+	 */
 	@Override
 	public E pop() {
 		E data;
@@ -53,6 +66,9 @@ public class MyStack<E> implements StackInterface<E> {
 	
 	}
 
+	/**
+	 * Checks what the top value is without taking it off the stack.
+	 */
 	@Override
 	public E peek() {
 		if(firstNode != null) {
@@ -66,6 +82,9 @@ public class MyStack<E> implements StackInterface<E> {
 		}
 	}
 
+	/**
+	 * checks if the stack is empty
+	 */
 	@Override
 	public boolean isEmpty() {
 		if(firstNode == null) {
@@ -76,6 +95,9 @@ public class MyStack<E> implements StackInterface<E> {
 		}
 	}
 	
+	/**
+	 * Displays the stack in the console
+	 */
 	public void display() {
 		if(firstNode == null) {
 			System.out.println("Stack is empty");
@@ -125,34 +147,72 @@ public class MyStack<E> implements StackInterface<E> {
 		}
 	}
 
+	/**
+	 * Clears the stack
+	 */
 	@Override
 	public void clear() {
 		firstNode = null;
 	}
 	
+	/**
+	 * private helper class for the Stack, creates and gives values to the nodes
+	 * to create a linked chain
+	 * @author Allen Payne
+	 *
+	 * @param <E>
+	 */
 	private class MyNode<E>{
 		private E data;
 		private MyNode next;
 		
+		/**
+		 * Constructor
+		 */
 		public MyNode() {
 			
 		}
+		/**
+		 * Constructor that sets the data 
+		 * @param data
+		 */
 		public MyNode(E data) {
 			this.data = data;
 		}
+		/**
+		 * Constructor that sets the data and the next node in the chain
+		 * @param data
+		 * @param next
+		 */
 		public MyNode(E data, MyNode next) {
 			this.data = data;
 			this.next = next;
 		}
+		/**
+		 * Returns the data the node holds
+		 * @return
+		 */
 		public E getData() {
 			return data;
 		}
+		/**
+		 * sets the data the node holds
+		 * @param data
+		 */
 		public void setData(E data) {
 			this.data = data;
 		}
+		/**
+		 * Sets the next link in the chain
+		 * @param next
+		 */
 		public void setNext(MyNode next) {
 			this.next = next;
 		}
+		/**
+		 * Returns the next link in the chain
+		 * @return
+		 */
 		public MyNode getNext() {
 			return next;
 		}

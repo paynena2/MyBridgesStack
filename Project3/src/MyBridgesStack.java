@@ -4,9 +4,12 @@ import bridges.base.Array;
 import bridges.base.ElementVisualizer;
 @SuppressWarnings({"unchecked","rawtypes"})
 public class MyBridgesStack<E> implements StackInterface<E>{
-	private SLelement firstNode;
-	private Bridges bridges = new Bridges(0, "paynena2","197701776935");
-	int counter = 0;
+	private SLelement firstNode; //Acts as the first node in the linked chain
+	private Bridges bridges = new Bridges(0, "paynena2","197701776935"); //setting up bridges communication
+	int counter = 0; //for use later in determining the size of the array needed for the elements
+	/*
+	 *calls the various methods that are implemented from stackInterface
+	 */
 	public static void main(String[] args) throws Exception {
 		MyBridgesStack stack = new MyBridgesStack();
 		stack.setUp();
@@ -16,12 +19,21 @@ public class MyBridgesStack<E> implements StackInterface<E>{
 		stack.pop();
 		stack.display();
 	}
+	/**
+	 * Sets the title for my bridges app
+	 */
 	public void setUp() {
 		bridges.setTitle("Nathaniel Payne");
 	}
+	/**
+	 * Constructor for bridges class
+	 */
 	public MyBridgesStack() {
 		firstNode = null;
 	}
+	/**
+	 * pushes an element of type E into the stack
+	 */
 	@Override
 	public void push(E newEntry) {
 		SLelement newNode = new SLelement(newEntry, firstNode);
@@ -29,6 +41,9 @@ public class MyBridgesStack<E> implements StackInterface<E>{
 		counter++;
 	}
 
+	/**
+	 * Pops the element off the top of the stack
+	 */
 	@Override
 	public E pop() {
 		E data;
@@ -42,7 +57,10 @@ public class MyBridgesStack<E> implements StackInterface<E>{
 		counter--;
 		return data;
 	}
-
+	
+	/**
+	 * Sees what the next element in the stack is without removing it
+	 */
 	@Override
 	public E peek() {
 		if(firstNode != null) {
@@ -54,6 +72,9 @@ public class MyBridgesStack<E> implements StackInterface<E>{
 		return null;
 	}
 
+	/**
+	 * Checks if the stack is empty
+	 */
 	@Override
 	public boolean isEmpty() {
 		if(firstNode == null) {
@@ -62,11 +83,18 @@ public class MyBridgesStack<E> implements StackInterface<E>{
 		return false;
 	}
 
+	/**
+	 * clears the stack
+	 */
 	@Override
 	public void clear() {
 		firstNode = null;
 	}
 	
+	/**
+	 * Outputs the link for the bridges visualization
+	 * @throws Exception
+	 */
 	public void display() throws Exception {
 		Array<E> data = new Array<E>(counter);
 		ElementVisualizer vis;
@@ -77,6 +105,9 @@ public class MyBridgesStack<E> implements StackInterface<E>{
 			MyBridgesStack temp1 = this;
 			MyBridgesStack temp2 = new MyBridgesStack();
 			int count = 0;
+			/*
+			 * Empties the stack and saves the values into the bridges array
+			 */
 			while(!temp1.isEmpty()) {
 				E item = (E)temp1.pop();
 				temp2.push(item);
