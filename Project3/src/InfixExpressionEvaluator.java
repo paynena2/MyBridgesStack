@@ -1,4 +1,10 @@
 @SuppressWarnings({"unchecked", "rawtypes"})
+/**
+ * 
+ * @author Allen Payne CMSC256 - 002
+ * Takes in the infix expressions and values and then solves them.
+ * Uses the MyStack class, which implements StackInterface
+ */
 public class InfixExpressionEvaluator{
 	/**
 	 * takes command line input and calls calculate method

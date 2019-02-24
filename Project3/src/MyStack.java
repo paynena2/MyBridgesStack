@@ -3,6 +3,12 @@ import java.util.EmptyStackException;
 
 @SuppressWarnings({"rawtypes","unchecked", "unused","hiding"})
 
+/**
+ * @author Allen Payne CMSC256 - 002
+ * @param <E>
+ * My implementation of a stack data structure using inner node class.
+ * Allows users to store data via pushing and popping the data.
+ */
 public class MyStack<E> implements StackInterface<E> {
 	
 	private MyNode firstNode;

@@ -2,6 +2,13 @@ import bridges.base.SLelement;
 import bridges.connect.Bridges;
 import bridges.base.Array;
 import bridges.base.ElementVisualizer;
+/**
+ * @author Allen Payne CMSC256 - 002
+ * @param <E>
+ * Implements the bridges library to visualize the data inside of a stack.
+ * Implements StackInterface.
+ * Takes in elements and stores them, then outputs them to a bridges visualizer.
+ */
 @SuppressWarnings({"unchecked","rawtypes"})
 public class MyBridgesStack<E> implements StackInterface<E>{
 	private SLelement firstNode; //Acts as the first node in the linked chain
