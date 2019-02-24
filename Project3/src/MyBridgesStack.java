@@ -7,12 +7,14 @@ public class MyBridgesStack<E> implements StackInterface<E>{
 	private SLelement firstNode;
 	private Bridges bridges = new Bridges(0, "paynena2","197701776935");
 	int counter = 0;
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		MyBridgesStack stack = new MyBridgesStack();
 		stack.setUp();
 		stack.push(1);
 		stack.push(2);
-		//stack.push("Hello");
+		stack.push("Hello");
+		stack.pop();
+		stack.display();
 	}
 	public void setUp() {
 		bridges.setTitle("Nathaniel Payne");
@@ -67,7 +69,7 @@ public class MyBridgesStack<E> implements StackInterface<E>{
 	
 	public void display() throws Exception {
 		Array<E> data = new Array<E>(counter);
-		ElementVisualizer vis = new ElementVisualizer();
+		ElementVisualizer vis;
 		if(firstNode == null) {
 			throw new IllegalArgumentException("Cannot visualize empty stack");
 		}
